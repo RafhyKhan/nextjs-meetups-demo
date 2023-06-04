@@ -32,20 +32,21 @@ function NewMeetupForm(props) {
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor='title'>Meetup Title</label>
-          <input type='text' required id='title' ref={titleInputRef} />
+          <input type='text' defaultValue="Eiffel Tower" required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor='image'>Meetup Image</label>
-          <input type='url' required id='image' ref={imageInputRef} />
+          <input type='url' defaultValue="https://images4.alphacoders.com/168/thumb-1920-168614.jpg" required id='image' ref={imageInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor='address'>Address</label>
-          <input type='text' required id='address' ref={addressInputRef} />
+          <input type='text' defaultValue="Eiffel Tower, Champ de Mars, 5 Av. Anatole France, 75007 Paris, France" required id='address' ref={addressInputRef} />
         </div>
         <div className={classes.control}>
           <label htmlFor='description'>Description</label>
           <textarea
             id='description'
+            defaultValue="Meeting at tower for the tour! Come Join!"
             required
             rows='5'
             ref={descriptionInputRef}

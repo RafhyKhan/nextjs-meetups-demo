@@ -46,7 +46,7 @@ export async function getStaticPaths() {
 
 
     //want to upload all details of meetups to database
-    const url = "mongodb+srv://mangoPunch:FPNOWAyZAqQ0pgoC@cluster0.qycf3er.mongodb.net/?retryWrites=true&w=majority";
+    const url = "mongodb+srv://BobAllan:b5tIpzAWNw8mFonS@cluster0.gmozk8w.mongodb.net/shop?retryWrites=true&w=majority";
     const client = await MongoClient.connect(url);
     const db = client.db();
     const meetupsCollection = db.collection('meetups');
@@ -75,7 +75,7 @@ export async function getStaticProps(context) {
 
 
     //want to upload each entries, meetups details so when you click details you see thoose of that specific entry
-    const url = "mongodb+srv://mangoPunch:FPNOWAyZAqQ0pgoC@cluster0.qycf3er.mongodb.net/?retryWrites=true&w=majority";
+    const url = "mongodb+srv://BobAllan:b5tIpzAWNw8mFonS@cluster0.gmozk8w.mongodb.net/react-meetups?retryWrites=true&w=majority";
     const client = await MongoClient.connect(url);
     const db = client.db();
     const meetupsCollection = db.collection('meetups');

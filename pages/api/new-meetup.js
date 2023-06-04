@@ -13,7 +13,7 @@ import { MongoClient } from "mongodb";
 
 async function handler (req, res, data) {
 
-    const url = "mongodb+srv://mangoPunch:FPNOWAyZAqQ0pgoC@cluster0.qycf3er.mongodb.net/?retryWrites=true&w=majority";
+    const url = "mongodb+srv://BobAllan:b5tIpzAWNw8mFonS@cluster0.gmozk8w.mongodb.net/react-meetups?retryWrites=true&w=majority";
 
 
     const data2 = req.body; 
