@@ -31,11 +31,11 @@ function NewMeetupForm(props) {
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor='title'>Meetup Title</label>
+          <label htmlFor='title'>Event Title</label>
           <input type='text' defaultValue="Eiffel Tower" required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='image'>Meetup Image</label>
+          <label htmlFor='image'>Event Image (Image Address URL)</label>
           <input type='url' defaultValue="https://images4.alphacoders.com/168/thumb-1920-168614.jpg" required id='image' ref={imageInputRef} />
         </div>
         <div className={classes.control}>
