@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# React-Meetups App
 
-## Getting Started
+[Check out the App Online!](https://nextjs-meetups-demo-topaz.vercel.app/)
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
+React Meetups uses a nextjs framework which increases library selection and 
+allows the use of many helpful development functions and services.
+We use a MongoDB backend and communicate with it through the MongoDB package library functions such as .collection() and .connect(). 
+We use getStaticProps() and getStaticPaths() functions to increase app
+performance by prioritizing the generation of the popular pages. Also are helpful when doing backend database management as it isn't client-side. Nextjs lets us have automatically generated index.html, use next/router functions which give more flexible pathway changes, server-side rendering enabling faster app executions, and backend code availability. 
+
+
+
+## Coding-Keywords Used
+
+| Keyword | Description of use |
+| ------ | ----------- |
+| next/router  | Used to make the react app muti-paged. I used Route(s) tags for the paths and useHistory for page redirects. |
+| next/link    | Used lazy-loading in this app with the React Suspense tags, to increase its performance by priotizing components.  |
+``` js
+import { useRouter } from 'next/router';
+
+import Card from '../ui/Card';
+import classes from './MeetupItem.module.css';
+
+function MeetupItem(props) {
+  const router = useRouter();
+
+  function showDetailsHandler() {
+    router.push('/' + props.id);
+  }
+...
 ```
+[Check out FULL Code](https://github.com/RafhyKhan/nextjs-meetups-demo/blob/main/components/meetups/MeetupItem.js)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+| Keyword | Description of use |
+| ------ | ----------- |
+| getStaticProps() | Prepares the props and data before generating the front page(also consist of mongoDB code)|
+| getStaticPaths() | Export function when using getStaticProps(), gets id's of all pre-generated pages, also gives fallback use  |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[Check out FULL code](https://github.com/RafhyKhan/nextjs-meetups-demo/blob/main/pages/%5BmeetupId%5D/index.js)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+---
 
-## Learn More
+| Keyword | Description of use |
+| ------ | ----------- |
+| MongoDB    | Used the mongodb library and functions to communicate with the database |
+``` js
+ const url = "mongodb+srv://BobAllan:b5tIpzAWNw8mFonS@cluster0.gmozk8w.mongodb.net/react-meetups?retryWrites=true&w=majority";
+    const client = await MongoClient.connect(url);
+    const db = client.db();
+    const meetupsCollection = db.collection('meetups');
 
-To learn more about Next.js, take a look at the following resources:
+    //must 
+    const selectedMeetup = await meetupsCollection.findOne({_id: ObjectId(meetupId)})
+```
+[Check out FULL code](https://github.com/RafhyKhan/nextjs-meetups-demo/blob/main/pages/%5BmeetupId%5D/index.js)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## END of ReadMe File
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
