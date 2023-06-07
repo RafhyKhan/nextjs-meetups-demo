@@ -49,7 +49,7 @@ function MeetupItem(props) {
 | ------ | ----------- |
 | MongoDB    | Used the mongodb library and functions to communicate with the database |
 ``` js
- const url = "mongodb+srv://BobAllan:b5tIpzAWNw8mFonS@cluster0.gmozk8w.mongodb.net/react-meetups?retryWrites=true&w=majority";
+ const url = //;
     const client = await MongoClient.connect(url);
     const db = client.db();
     const meetupsCollection = db.collection('meetups');
